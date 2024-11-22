@@ -7,6 +7,7 @@ namespace stevenscounter.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private static int visitors = 0;
 
     public HomeController(ILogger<HomeController> logger)
     {
@@ -15,7 +16,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+	visitors += 1;
+        return View(visitors);
     }
 
     public IActionResult Privacy()
